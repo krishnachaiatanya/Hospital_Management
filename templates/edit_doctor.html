@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Doctor - LK Hospital{% endblock %}
+
+{% block content %}
+<header class="header">
+    <div class="hospital-logo">
+        <img src="{{ url_for('static', filename='images/hospital-logo.png') }}" alt="LK Hospital Logo">
+        <span class="hospital-name">LK Hospital</span>
+    </div>
+    <div class="nav-buttons">
+        <a href="{{ url_for('admin_dashboard') }}" class="nav-button">Dashboard</a>
+        <a href="{{ url_for('logout') }}" class="nav-button">Logout</a>
+    </div>
+</header>
+
+<main class="container mt-5">
+    <div class="edit-doctor-page">
+        <h1 class="text-center mb-5">Edit Doctor</h1>
+        
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('edit_doctor', doctor_id=doctor.id) }}">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Doctor Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ doctor.name }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="specialization" class="form-label">Specialization</label>
+                            <input type="text" class="form-control" id="specialization" name="specialization" value="{{ doctor.specialization }}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="qualifications" class="form-label">Qualifications</label>
+                            <input type="text" class="form-control" id="qualifications" name="qualifications" value="{{ doctor.qualifications }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="years_of_experience" class="form-label">Years of Experience</label>
+                            <input type="number" class="form-control" id="years_of_experience" name="years_of_experience" value="{{ doctor.years_of_experience }}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('view_all_doctors') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Doctors List
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %} 
