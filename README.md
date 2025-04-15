@@ -1,6 +1,7 @@
 # Hospital Management System
 
 A comprehensive hospital management system built with Flask.
+This website is running at https://hospital-management-7d4n.onrender.com
 
 ## Features
 
@@ -11,53 +12,29 @@ A comprehensive hospital management system built with Flask.
 - User authentication (admin and patient roles)
 - Responsive design
 
-## Deployment Instructions for PythonAnywhere
+## Deployment Instructions for Render
 
-1. Sign up for a free account at [PythonAnywhere](https://www.pythonanywhere.com/)
 
-2. Upload your files:
-   - Go to the Files tab in your PythonAnywhere dashboard
-   - Create a new directory (e.g., `hospital`)
-   - Upload all the files from your Hospital directory
 
-3. Set up a virtual environment:
-   ```bash
-   mkvirtualenv --python=python3.9 hospital-env
-   ```
-
-4. Install dependencies:
-   ```bash
-   cd ~/hospital
-   pip install -r requirements.txt
-   ```
-
-5. Set up MySQL database:
-   - Go to the Databases tab in PythonAnywhere
+1.Set up MySQL database:
+   - Go to the Freeonline mysql database
    - Create a new MySQL database
    - Update the .env file with the database credentials:
      ```
      DATABASE_URI=mysql://username:password@hostname/database_name
      ```
 
-6. Run the database initialization script:
+2. Run the database initialization script:
    ```bash
    cd ~/hospital
    python init_database.py
    ```
 
-7. Configure the web app:
-   - Go to the Web tab in PythonAnywhere
-   - Click "Add a new web app"
-   - Choose "Manual configuration" and select Python 3.9
-   - Set the source code directory to `/home/yourusername/hospital`
-   - Set the WSGI configuration file to point to your wsgi.py
-   - Update the WSGI file with the correct path to your application
-   - Add the following environment variables:
-     - SECRET_KEY=your_secret_key
-     - DATABASE_URI=mysql://username:password@hostname/database_name
-     - DEBUG=False
 
-8. Restart your web app and it should be live at `https://yourusername.pythonanywhere.com`
+3.Deployment in render:
+    --- Upload all your files in render .
+    --- Give commands as pip install -r requirements.txt.
+    --- Give run command as python app.py.
 
 ## Local Development
 
